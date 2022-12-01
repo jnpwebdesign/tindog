@@ -1,5 +1,9 @@
 import {dogs} from "./data.js"
 
+const likeBadge =  document.getElementById("like-badge");
+const nopeBadge =  document.getElementById("nope-badge");
+const likeBtn = document.getElementById("like-btn");
+const nopeBtn = document.getElementById("nope-btn");
 
 class Dog {
     constructor(data){
@@ -14,58 +18,51 @@ class Dog {
                 <h1>${name},<span> ${age}</span></h1>
                 <h2>${bio}</h2>
             </div>
-        `
-        
+        `    
     }    
-}
-
-function createInstanceOfDog() {
-    let currentDog = new Dog (dogs[0]);
-    return currentDog;
-    }
-
-function renderCurrentDogHtmlToDOM() {
-    document.getElementById("current-profile-container").innerHTML = createInstanceOfDog().getCurrentDogHtml();
-    dogs.shift();
 }
 
 renderCurrentDogHtmlToDOM();
 
-const likeBadge =  document.getElementById("like-badge");
-let nopeBadge =  document.getElementById("nope-badge")
+function createInstanceOfDog() {
+    let currentDog = new Dog (dogs[0]);
+    return currentDog;
+}
 
+function renderCurrentDogHtmlToDOM() {
+    document.getElementById("current-profile-container").innerHTML = createInstanceOfDog().getCurrentDogHtml();
+    dogs.shift();
+    if (nopeBadge.classList.contains("hidden") === false) {
+        nopeBadge.classList.add("hidden");
+        likeBtn.disabled = false;
+    } else {
+        likeBadge.classList.add("hidden");
+        nopeBtn.disabled = false;
+
+    }
+}
 
 document.addEventListener("click", function(currentDog){
     if (currentDog.target.dataset.heart) {
-        currentDog.hasBeenLiked = true;
-        currentDog.hasBeenSwiped = true;
-        likeBadge.removeAttribute("class")
-        document.getElementById("x-container").disabled = true;
-        setTimeout(renderCurrentDogHtmlToDOM, 2000);
-    } 
-    if (currentDog.target.dataset.nope) {
-        document.getElementById("nope-badge").removeAttribute("class")
-        currentDog.hasBeenSwiped = true;
+        clickLikeButton(currentDog);
+    } else if (currentDog.target.dataset.nope) {
+        clickNopeButton(currentDog);
     }
 
 })
 
-function clickLikeButton() {
-    
+function clickLikeButton(currentDog) {
+    currentDog.hasBeenLiked = true;
+    currentDog.hasBeenSwiped = true;
+    likeBadge.removeAttribute("class")
+    nopeBtn.disabled = true;
+    setTimeout(renderCurrentDogHtmlToDOM, 2000);
 }
-//hasBeenSwiped: false,
-//hasBeenLiked: false
 
-// const heartContainer = document.getElementById("heart-container");
-// heartContainer.addEventListener("click", function(){
-//     console.log("heart");
-// })
+function clickNopeButton(currentDog) {
+    nopeBadge.removeAttribute("class");
+    currentDog.hasBeenSwiped = true;
+    likeBtn.disabled = true;
+    setTimeout(renderCurrentDogHtmlToDOM, 2000);
+}
 
-
-// name: "Bella",
-// avatar: "images/dog-bella.jpg",
-// age: 43,
-// bio: "Yup, that's my owner. U can meet him if you want",
-// hasBeenSwiped: false,
-// hasBeenLiked: false
-// },

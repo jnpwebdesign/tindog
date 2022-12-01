@@ -102,7 +102,7 @@ footer {
 
 }
 
-.x-container, .heart-container {
+.nope-btn, .like-btn {
     height: 91px;
     width: 91px;
     border-radius: 50%;
@@ -121,12 +121,11 @@ footer {
     z-index: -1;
 }
 
-.heart-container:hover{
+.like-btn:hover{
     background-color:rgba(53, 228, 182, 0.14);
 }
 
-.x-container:hover {
+.nope-btn:hover {
     background-color: rgba(235, 75, 100, 0.14);
 }
 
-.disabled
