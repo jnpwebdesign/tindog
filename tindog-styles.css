@@ -5,15 +5,17 @@ html, body {
 }
 
 .app-container {
-    border: 3px solid purple; 
+    height: 95%;
     max-width: 550px;
-    margin: 0 auto;
+    margin: 1rem auto;
+    border: 1px solid black;
+    border-radius: 5px;
 }
 
 /*---------------- header ---------------*/
 
 header {
-    height: 81px;
+    height: 10%;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -21,43 +23,48 @@ header {
 }
 
 .profile-image, .chat-bubble {
-    height: 34px;
+    height: 50%;
     margin: auto 10px;
 }
 
 .logo {
-    height: 42px;
+    height: 2.6rem;
 }
 
 /*---------------- main ---------------*/
 
+.main-area {
+    height: 80%;
+}
+
 #current-profile-container {
-    height: 752px;
+    height: 100%;
     position: relative;
     z-index: -2;
+    display: flex;
 }
 
 .current-profile-image {
-    max-width: 534px;
-    max-height: 751px;
+    width: 95%;
     Object-fit: cover;
     border-radius: 15px;
-    margin: 0 8px;
     z-index: -1;
+    margin: 0 auto;
 }
 
 .current-image-text {
     position: absolute;
-    bottom: 10px;
-    left: 30px;
+    bottom: .6rem;
+    left: 2rem;
     z-index: 10;
+    margin-right: 2rem;
 
 }
 
 h1{
     font-weight: bold;
-    font-size: 32px;
-    line-height: 36px;
+    font-size: 2rem;
+    line-height: 2.2rem;
     text-align: left;
     color: white;
     padding-bottom: 0;
@@ -67,13 +74,12 @@ h1{
 
 h2 {
     font-weight: 200;
-    font-size: 24px;
-    line-height: 32px;
+    font-size: 1.5rem;
+    line-height: 2rem;
     text-align: left;
     color: white;
     margin-top: 0;
     padding-top: 5px;
-    
 }
 
 .main-area {
@@ -81,15 +87,21 @@ h2 {
 }
 
 #like-badge, #nope-badge {
-    width: 190px;
+    max-width: 190px;
     position: absolute;
-    top: 70px;
-    left: 30px;
+    top: 4.5rem;
+    left: 2rem;
     transform: rotate(-30deg);
 }
 
 .hidden {
     visibility: hidden;
+}
+
+.no-dogs {
+    font-size: 3rem;
+    text-align: center;
+    padding: 10rem 1rem 1rem 1rem;
 }
 
 /*---------------- footer ---------------*/
@@ -98,16 +110,16 @@ footer {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 140px;
+    height: 10%;
 
 }
 
 .nope-btn, .like-btn {
-    height: 91px;
-    width: 91px;
+    height: 3.5rem;
+    width: 3.5rem;
     border-radius: 50%;
     box-shadow: 0 5px 15px rgb(0,0,0, 0.1);
-    margin: 0 24px;
+    margin: 0 1.5rem;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -129,3 +141,33 @@ footer {
     background-color: rgba(235, 75, 100, 0.14);
 }
 
+@media (max-width: 600px) {
+
+    .app-container {
+        height: 95%;
+    }
+
+    h1{
+        font-size: 1.7rem;        
+    }
+    
+    h2 {
+        font-size: 1.2rem;
+        line-height: 1.2rem;
+    }
+  
+    .nope-btn, .like-btn {
+        height: 2.5rem;
+        width: 2.5rem;
+        margin: 0 1.5rem;
+        box-shadow: 0 5px 15px rgb(0,0,0, 0.3);
+    }
+
+    .footer-icons {
+        height: 70%;
+    }
+    .main-area {
+        max-height: 800px; 
+        width: 96%;
+    }
+}

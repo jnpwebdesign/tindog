@@ -1,4 +1,5 @@
 import {dogs} from "./data.js"
+//import { Dog } from "./Dog.js"
 
 const likeBadge =  document.getElementById("like-badge");
 const nopeBadge =  document.getElementById("nope-badge");
@@ -30,16 +31,25 @@ function createInstanceOfDog() {
 }
 
 function renderCurrentDogHtmlToDOM() {
-    document.getElementById("current-profile-container").innerHTML = createInstanceOfDog().getCurrentDogHtml();
-    dogs.shift();
+    if (dogs.length > 0){
+        document.getElementById("current-profile-container").innerHTML = createInstanceOfDog().getCurrentDogHtml();
+        dogs.shift();
+    } else {
+        endOfDogs();
+    }
+
     if (nopeBadge.classList.contains("hidden") === false) {
         nopeBadge.classList.add("hidden");
         likeBtn.disabled = false;
     } else {
         likeBadge.classList.add("hidden");
         nopeBtn.disabled = false;
-
     }
+}
+
+function endOfDogs() {
+    document.getElementById("app-container").innerHTML = `
+    <p class="no-dogs">There are no more dogs available. You will be alone forever. Goodbye.</p>`
 }
 
 document.addEventListener("click", function(currentDog){
@@ -48,7 +58,6 @@ document.addEventListener("click", function(currentDog){
     } else if (currentDog.target.dataset.nope) {
         clickNopeButton(currentDog);
     }
-
 })
 
 function clickLikeButton(currentDog) {
