@@ -1,0 +1,37 @@
+<html>
+    <head><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">
+        <link rel="stylesheet" href="tindog-styles.css">
+        <title>TinDog: Find your Four-legged Match!</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;700&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <div class="app-container">
+            <header class="header-container">
+                <img src="images/icon-profile.png" class="profile-image header-image" alt="profile image">
+                <img src="images/logo.png" class="logo header-image" alt="tindog logo">
+                <img src="images/icon-chat.png" class="chat-bubble header-image" alt="chat bubble">
+            </header>
+            <main class="main-area">
+                <div id="current-profile-container">
+
+                </div>
+                <img class="hidden" id="like-badge" src="images/badge-like.png" alt="like badge">
+                <img class="hidden" id="nope-badge" src="images/badge-nope.png" alt="nope badge">
+
+            </main>
+            <footer class="footer-container">
+                <button id="x-container" class="x-container" data-nope="nope-badge">
+                    <img src="images/icon-cross.png" class="footer-icons">
+                </button>
+                <button id="heart-container" class="heart-container" data-heart="like-badge">
+                    <img src="images/icon-heart.png" class="footer-icons">
+                </button>
+            </footer>
+
+        </div>
+
+        <script src="/index.js" type="module"></script>
+    </body>
+</html>
