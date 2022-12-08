@@ -1,6 +1,6 @@
 import {dogs} from "./data"
 
-class Dog {
+export class Dog {
     constructor(data){
         Object.assign(this, data);
     }
@@ -16,5 +16,3 @@ class Dog {
         `    
     }    
 }
-
-export { Dog }

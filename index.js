@@ -5,7 +5,6 @@ const likeBadge =  document.getElementById("like-badge");
 const nopeBadge =  document.getElementById("nope-badge");
 const likeBtn = document.getElementById("like-btn");
 const nopeBtn = document.getElementById("nope-btn");
-
 class Dog {
     constructor(data){
         Object.assign(this, data);
